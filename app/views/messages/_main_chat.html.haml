@@ -1,0 +1,47 @@
+-# 画面右のチャット画面
+.main-chat__contents
+  -# グループ名、メンバーが表示されているところ
+  .main-chat__group-info
+    .main-chat__group-info__left-box
+      %h2.main-chat__group-info__left-box__current-group 
+        sdsdsdsd
+      %ul.main-chat__group-info__left-box__member-list 
+        Member : 
+        %li.main-chat__group-info__left-box__member-list__member
+          qqqqq
+        %li.main-chat__group-info__left-box__member-list__member
+          tetu
+    =link_to "#", class: "edit-btn" do
+      .main-chat__group-info__edit-btn Edit
+  -# メッセージや画像が表紙されているところ
+  .main-chat__message-list
+    .main-chat__message-list__message
+      .main-chat__message-list__message__upper-info
+        %p.main-chat__message-list__message__upper-info__talker 
+          hhhhhhhh
+        %p.main-chat__message-list__message__upper-info__date 
+          2020/03/23(Mon) 15:13:49
+      %p.main-chat__message-list__message__text 
+        今日はいい天気ですね
+    .main-chat__message-list__message
+      .main-chat__message-list__message__upper-info
+        %p.main-chat__message-list__message__upper-info__talker 
+          よーすけ
+        %p.main-chat__message-list__message__upper-info__date 
+          2020/03/23(Mon) 15:45:06
+      %p.main-chat__message-list__message__text 
+        そうですね。いい洗濯日和です
+
+  -# メッセージや画像を送信するフォーム部分
+  -# 入力フォームが親要素になれないのでdiv要素で親要素を作る
+  -# 親要素の中に2つの子要素を横並びにすることで、1つのフォームのように見えるよう実装
+  .main-chat__message-form
+    -# 入力フォームは親要素になれない
+    %form.new-message     
+      .input-box
+        %input.input-box__text{placeholder:"メッセージを入力してください"}
+        -# ラベルの役割の1つは、ラベルがクリックされた時に、子要素もクリックされたことにしてくれること
+        %label.input-box__image
+          =icon("far", "image", class: "image-icon")
+          %input{type: "file",  class: "file-icon"}
+      %input.submit-btn{type:"submit", value:"Send"}
