@@ -1,0 +1,26 @@
+-# 画面左のサイドバー
+.side-bar__contents
+  -# ユーザー名とアイコンが表示されているところ
+  .side-bar__user-name
+    .side-bar__user-name__box
+      %p.side-bar__user-name__box__name masa
+      %ul.side-bar__user-name__box__menu
+        %li 
+          =link_to "#", class: "icon" do
+            =icon("fas","edit")
+        %li 
+          =link_to "#", class: "icon" do
+            =icon("fas","cog")
+        
+        
+  -# グループリストが表示されているところ
+  .side-bar__group-list 
+    =link_to  "#", class: "group" do
+      .group
+        %p.group__group-name tech-camp
+        %p.group__latest-message まだメッセージがありません
+    =link_to  "#", class: "group" do
+      .group
+        %p.group__group-name tech-academy
+        %p.group__latest-message 新しい投稿があります
+        

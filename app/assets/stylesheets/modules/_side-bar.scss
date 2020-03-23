@@ -1,0 +1,58 @@
+.side-bar__contents {
+  width: 300px;
+  height: 100vh;
+  background-color: $sidecolor;
+  float: left;
+
+  .side-bar__user-name {
+    background-color: $sidecolor;
+    height: 100px;
+    display: flex;   // boxを上下中央に配置するためには親要素にdisplay: flex; align-items: center; を指定する
+    align-items: center;
+    padding: 0 20px;
+    &__box {
+      height: 20px;
+      // background-color: #333333;
+      width: 100%;
+      @include display-flex(); // p,ul要素を両端におく
+      color:$white-color;
+      align-items: center;
+      font-size: 16px;
+      @include font-bold();
+      &__menu{
+        display: flex;
+        width: 60px;
+        justify-content: flex-end;  // li要素を右揃えで配置
+      }
+      %ul {
+        list-style: none;
+        }
+        .icon {
+          color:$white-color;
+          margin-left: 5px;
+      }
+      
+    }
+  }
+}
+
+
+.side-bar__group-list {
+  background-color: $grouplist-color;
+  height: calc(100vh - 100px);
+  padding: 20px 20px 0 20px;
+  & a {
+    text-decoration: none;
+    color:#ffffff;
+  }
+  .group {
+    margin-bottom: 40px;
+    &__group-name {
+      font-size:15px;
+      margin-bottom:5px;
+    }
+    &__latest-message {
+      font-size: 11px;
+    }
+  }
+}
