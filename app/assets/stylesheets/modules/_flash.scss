@@ -1,0 +1,15 @@
+.notification {
+  // 通知用
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+  }
+  
+  // アラート用
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+  }
+}
