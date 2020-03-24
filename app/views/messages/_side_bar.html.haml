@@ -3,13 +3,15 @@
   -# ユーザー名とアイコンが表示されているところ
   .side-bar__user-name
     .side-bar__user-name__box
-      %p.side-bar__user-name__box__name masa
+      %p.side-bar__user-name__box__name 
+        =current_user.name # ログインしているユーザーの名前
       %ul.side-bar__user-name__box__menu
         %li 
           =link_to "#", class: "icon" do
             =icon("fas","edit")
-        %li 
-          =link_to "#", class: "icon" do
+        %li
+          -#ユーザーのアカウント編集画面へ遷移する
+          =link_to edit_user_path(current_user), class: "icon" do
             =icon("fas","cog")
         
         

@@ -1,16 +1,26 @@
+// 読み込みたい順に書く
 // 追加する全てのスタイルシートはapplication.scssから@importを使って読み込む。
+
+// FontAwesomeを使うため
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // ブラウザによってデフォルトで設定されているスタイルをリセットするため
 @import "reset"; 
+
+// フラッシュメッセージのデザイン
+// colors.scssは、reset.scssの直後で読み込むようにしましょう。
+// 色についての変数を利用するCSSの前に先に読み込めていないと、エラーになってしまいます。
+@import "config/colors"; 
+
 /* configフォルダの中の_variable.scssを読み込む */
 // configフォルダは、プロジェクトの設定ファイルや、scssで使用する変数を定義するファイルなどを管理するフォルダ
 @import "./config/variable"; 
 @import "./mixin/mixin"; 
+@import "modules/user";
+@import "modules/flash";
 @import "modules/messages";
 @import "modules/side-bar";
 @import "modules/main-chat";
 
 
-// FontAwesomeを使うため
-@import "font-awesome-sprockets";
-@import "font-awesome";
