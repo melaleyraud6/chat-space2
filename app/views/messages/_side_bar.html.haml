@@ -7,7 +7,7 @@
         =current_user.name # ログインしているユーザーの名前
       %ul.side-bar__user-name__box__menu
         %li 
-          =link_to "#", class: "icon" do
+          =link_to new_group_path, class: "icon" do
             =icon("fas","edit")
         %li
           -#ユーザーのアカウント編集画面へ遷移する
@@ -17,12 +17,11 @@
         
   -# グループリストが表示されているところ
   .side-bar__group-list 
-    =link_to  "#", class: "group" do
-      .group
-        %p.group__group-name tech-camp
-        %p.group__latest-message まだメッセージがありません
-    =link_to  "#", class: "group" do
-      .group
-        %p.group__group-name tech-academy
-        %p.group__latest-message 新しい投稿があります
+    - current_user.groups.each do |group|
+      =link_to messages_path , class: "group" do
+        .group
+          %p.group__group-name 
+            =group.name
+          %p.group__latest-message まだメッセージがありません
+    
         
