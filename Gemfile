@@ -58,3 +58,5 @@ gem 'font-awesome-sass'
 gem 'haml-rails'
 # ユーザー管理機能
 gem 'devise'
+# デバック用
+gem 'pry-rails'
