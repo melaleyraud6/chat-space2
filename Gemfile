@@ -60,3 +60,6 @@ gem 'haml-rails'
 gem 'devise'
 # デバック用
 gem 'pry-rails'
+# 画像の送信
+gem 'carrierwave'
+gem 'mini_magick'
