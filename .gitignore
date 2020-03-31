@@ -12,3 +12,5 @@
 .byebug_history
 # 画像がGithubにコミットされないようにする 投稿された画像自体はソースコードに関係がないため
 public/uploads/*
+# secrets.ymlは各種パスワードを扱うためのファイルのため
+config/secrets.yml
