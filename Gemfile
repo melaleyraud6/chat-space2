@@ -38,11 +38,15 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'  # RSpecを利用するため
+  gem 'factory_bot_rails' # 簡単にダミーのインスタンスを作成することができる
+  gem 'rails-controller-testing' # コントローラのテストに必要
+  gem 'faker' # emailや電話番号、名前などのダミーデータを作成するため
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.3.0' # test環境で動かすと不具合が起きる可能性があるgemなのでdevelopment環境でのみ
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -63,3 +67,4 @@ gem 'pry-rails'
 # 画像の送信
 gem 'carrierwave'
 gem 'mini_magick'
+
