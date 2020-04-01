@@ -14,12 +14,19 @@
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
   .chat-group-form__field.clearfix
     / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+    .chat-group-form__field--left
+      %label.chat-group-form__label{:for => "chat_group_チャットメンバーを追加"} チャットメンバーを追加
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input#user-search-field.chat-group-form__input{:placeholder => "追加したいユーザー名を入力してください", :type => "text"}/
+      #user-search-result
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-      = f.collection_check_boxes :user_ids, User.all, :id, :name
+      -# = f.collection_check_boxes :user_ids, User.all, :id, :name
       -# 第２、第４引数は「フォームの表示」に使われます。
         -# 第２引数で、表示されるためのデータを指定します。
         -# 第４引数で、上記データのどのカラムを表示させるかを指定します。
@@ -28,6 +35,22 @@
         -# 第３引数は、送信されるハッシュの「バリュー」です。
 
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+      #chat-group-users.js-add-user
+        -#ログイン中のユーザーを追加済みの状態にする
+        .chat-group-user.clearfix.js-chat-member   
+          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+          %p.chat-group-user__name= current_user.name
+        -# 編集画面では既存のユーザーが追加済みの状態であることを確認する
+        -group.users.each do |user|
+          -if current_user.name != user.name
+            .chat-group-user.clearfix.js-chat-member  
+              %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+              %p.chat-group-user__name
+                = user.name
+              .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+                削除
+
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
