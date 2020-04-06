@@ -1,11 +1,14 @@
-.main-chat__message-list__message
-  .main-chat__message-list__message__upper-info
-    %p.main-chat__message-list__message__upper-info__talker 
-      =message.user.name
-    %p.main-chat__message-list__message__upper-info__date 
-      =message.created_at.strftime("%Y年%m月%d日(%a) %H時%M分")
-  .main-chat__message-list__message__lower-info
-    -if message.body.present?
-      %p.main-chat__message-list__message__text 
-        =message.body
-    =image_tag message.image.url, class: "lower-info__image" if message.image.present?
+-# カスタムデータ属性を使って今表示されているメッセージのidがわかるようにしておく
+-# jQueryを使って表示されている最新メッセージのidを取得できるするため
+.message{data: {message: {id: message.id}}}  
+  .main-chat__message-list__message
+    .main-chat__message-list__message__upper-info
+      %p.main-chat__message-list__message__upper-info__talker 
+        =message.user.name
+      %p.main-chat__message-list__message__upper-info__date 
+        =message.created_at.strftime("%Y年%m月%d日(%a) %H時%M分")
+    .main-chat__message-list__message__lower-info
+      -if message.body.present?
+        %p.main-chat__message-list__message__text 
+          =message.body
+      =image_tag message.image.url, class: "lower-info__image" if message.image.present?

@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module ChatSpace2
   class Application < Rails::Application
-    config.time_zone = 'Tokyo'
+    config.time_zone = 'Tokyo'                     # 都市名を設定することでタイムゾーンを変更
+    config.active_record.default_timezone = :local # DB レコードの読み書きに対する設定.:local を設定した場合、DBが動作するサーバのタイムゾーンが使用されます。
     config.generators do |g|  
       g.stylesheets false
       g.javascripts false
